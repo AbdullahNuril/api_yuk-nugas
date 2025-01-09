@@ -45,14 +45,14 @@ class TaskCreate(BaseModel):
     mapel_tugas: str
     deskripsi_tugas: str = ""
     tenggat_waktu: datetime
-    status_tugas: str = Field("Belum", regex="^(Belum|Sedang|Selesai)$")
+    status_tugas: str = Field("Belum", pattern="^(Belum|Sedang|Selesai)$")
 
 class TaskUpdate(BaseModel):
     nama_tugas: str
     mapel_tugas: str
     deskripsi_tugas: str = ""
     tenggat_waktu: datetime
-    status_tugas: str = Field(..., regex="^(Belum|Sedang|Selesai)$")
+    status_tugas: str = Field(..., pattern="^(Belum|Sedang|Selesai)$")
 
 # Fungsi Utilitas
 def log_aktivitas(aksi: str, email_pengguna: str, detail: dict):
