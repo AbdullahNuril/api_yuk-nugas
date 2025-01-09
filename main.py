@@ -8,8 +8,13 @@ from datetime import datetime, timedelta
 from jose import JWTError, jwt
 from pymongo import MongoClient, ASCENDING
 import os
+import uvicorn
 from bson.objectid import ObjectId
 
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
+    
 # Konfigurasi Aplikasi
 app = FastAPI(title="Backend Manajemen Tugas")
 
