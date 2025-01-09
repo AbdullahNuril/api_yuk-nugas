@@ -36,7 +36,7 @@ class UserCreate(BaseModel):
     nama_pengguna: str
     email: str
     sandi: str
-    peran: str = Field(..., regex="^(admin|user)$")
+    peran: str = Field(..., pattern="^(admin|user)$")
 
 class TaskCreate(BaseModel):
     nama_pemilik: str
