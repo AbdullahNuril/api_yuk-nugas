@@ -14,7 +14,7 @@ from bson.objectid import ObjectId
 app = FastAPI(title="Backend Manajemen Tugas")
 
 # Konfigurasi Basis Data
-client = MongoClient("mongodb://localhost:27017")
+client = MongoClient("mongodb+srv://14nuril04:Subscribe1434@cluster0.ocgjaaf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db = client["banyak_tugas"]
 users_collection = db["pengguna"]
 tasks_collection = db["tugas"]
