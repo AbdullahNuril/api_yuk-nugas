@@ -10,10 +10,6 @@ from pymongo import MongoClient, ASCENDING
 import os
 import uvicorn
 from bson.objectid import ObjectId
-
-if __name__ == "__main__":
-    port = int(os.getenv("PORT", 8000))
-    uvicorn.run(app, host="0.0.0.0", port=port)
     
 # Konfigurasi Aplikasi
 app = FastAPI(title="Backend Manajemen Tugas")
@@ -174,3 +170,7 @@ def hapus_tugas(task_id: str, current_user: dict = Depends(dapatkan_pengguna_saa
     tasks_collection.delete_one({"_id": ObjectId(task_id)})
     log_aktivitas("hapus_tugas", current_user["email"], {"task_id": task_id})
     return {"pesan": "Tugas berhasil dihapus"}
+
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
