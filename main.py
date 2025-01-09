@@ -172,5 +172,5 @@ def hapus_tugas(task_id: str, current_user: dict = Depends(dapatkan_pengguna_saa
     return {"pesan": "Tugas berhasil dihapus"}
 
 if __name__ == "__main__":
-    port = int(os.getenv("PORT", 8000))
+    port = int(os.getenv("PORT", 5432))
     uvicorn.run(app, host="0.0.0.0", port=port)
